@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-
-
+import 'package:gogobus10/utils/busn.dart';
+//fourth page with details of particular bus
 class busDetail extends StatelessWidget {
+  bus _bus;
+  busDetail(this._bus);
   @override
   Widget build(BuildContext context) {
     TextStyle textStyle = Theme.of(context).textTheme.title;
@@ -19,12 +21,12 @@ class busDetail extends StatelessWidget {
     moveToLastScreen(context);
     },
     )),
-    body: Center( child: Container(
+    body: Center( child: Card(
+      child: Padding(
       padding: EdgeInsets.all(20.0),
-
       child: Column(
         children: <Widget>[
-          Text("St Jos Travels", style: TextStyle(color: Colors.white, fontSize: 25.0),textScaleFactor: 1.5,),
+          Text(this._bus.title, style: TextStyle(color: Colors.white, fontSize: 25.0),textScaleFactor: 1.5,),
           Container(height: 50.0,),
           Container(
             width: 300.00,
@@ -33,22 +35,22 @@ class busDetail extends StatelessWidget {
             child: Column(
               children: <Widget>[
                 Container(height: 50.0,),
-                Text('Arrival time : 7.20 AM', style: TextStyle(color: Colors.indigo, fontSize: 20.0),textScaleFactor: 1.5,),
+                Text('Arrival time : '+this._bus.aTime, style: TextStyle(color: Colors.indigo, fontSize: 20.0),textScaleFactor: 1.5,),
 
                 Container(height: 50.0,),
 
-                Text('Reach time : 7.45 AM', style: TextStyle(color: Colors.indigo, fontSize: 20.0),textScaleFactor: 1.5,),
+                Text('Reach time : '+this._bus.rTime, style: TextStyle(color: Colors.indigo, fontSize: 20.0),textScaleFactor: 1.5,),
 
                 Container(height: 50.0,),
 
-                Text('Crowd : 75%', style: TextStyle(color: Colors.indigo,fontSize: 20.0),textScaleFactor: 1.5,),
+                Text('Crowd : '+this._bus.crowd, style: TextStyle(color: Colors.indigo,fontSize: 20.0),textScaleFactor: 1.5,),
 
 
               ],
             ),
           )
         ],
-      )
+      ))
       ),
     ),
     );

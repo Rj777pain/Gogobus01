@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:gogobus10/screens/bus_detail.dart';
+import 'package:gogobus10/utils/busn.dart';
+//third page with list of available buses
 
 class busList extends StatelessWidget {
+
+  int count=0;
+  List<bus> buslt;
   @override
   Widget build(BuildContext context) {
+    buslt=togetList();
+    count=buslt.length;
     TextStyle textStyle = Theme.of(context).textTheme.title;
     return Scaffold(
       appBar: AppBar(
@@ -16,54 +23,45 @@ class busList extends StatelessWidget {
           moveToLastScreen(context);
         }),
       ),
-      body: ListView(
-        children: <Widget>[
-          Padding(padding: EdgeInsets.only(top: 20.0,bottom: 10.0),
-          child:Container(color: Colors.white,child: ListTile(
-            leading: CircleAvatar(
-              backgroundColor: Colors.indigo,
-              child:Icon(Icons.directions_bus),),
-            title: Text("St Jos Travels", style: TextStyle(color: Colors.indigo, fontSize: 20.0),),
-            subtitle: Text("7.15 AM", style: TextStyle(color: Colors.blueAccent),),
-            onTap: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return busDetail();
-              }));
-            },
-          ),),),
+      body: ListView.builder(//list of buses
+        itemCount: count,
+        itemBuilder: (BuildContext context, int position){
+          return Card(
+            color: Colors.white,
+            elevation: 2.0,
+            child: Padding(
+              padding: EdgeInsets.all(20.0),
+              child: ListTile(
+                leading: CircleAvatar(
+                  backgroundColor: Colors.indigo,
+                  child:Icon(Icons.directions_bus),),
+                title: Text(this.buslt[position].title, style: TextStyle(color: Colors.indigo, fontSize: 20.0),),
+                subtitle: Text(this.buslt[position].aTime, style: TextStyle(color: Colors.blueAccent),),
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return busDetail(this.buslt[position]);//to next page
+                  }));
+                },
+              ),),
 
-          Padding(padding: EdgeInsets.only(top: 10.0,bottom: 10.0),
-            child:Container(color: Colors.white,child:  ListTile(
-              leading: CircleAvatar(
-                backgroundColor: Colors.indigo,
-                child:Icon(Icons.directions_bus),),
-              title: Text("Jesus Travels", style: TextStyle(color: Colors.indigo, fontSize: 20.0),),
-              subtitle: Text("7.25 AM",style: TextStyle(color: Colors.blueAccent),),
-            ),)),
-
-          Padding(padding: EdgeInsets.only(top: 10.0,bottom: 10.0),
-            child: Container(color: Colors.white,child: ListTile(
-              leading: CircleAvatar(
-                backgroundColor: Colors.indigo,
-                child:Icon(Icons.directions_bus),),
-              title: Text("Suma Travels", style: TextStyle(color: Colors.indigo, fontSize: 20.0),),
-              subtitle: Text("7.40 AM",style: TextStyle(color: Colors.blueAccent),),
-            ),),),
-
-          Padding(padding: EdgeInsets.only(top: 10.0,bottom: 10.0),
-            child:Container(color: Colors.white,child:  ListTile(
-              leading: CircleAvatar(
-                backgroundColor: Colors.indigo,
-                child:Icon(Icons.directions_bus),),
-              title: Text("KSRTC", style: TextStyle(color: Colors.indigo, fontSize: 20.0),),
-              subtitle: Text("8.00 AM",style: TextStyle(color: Colors.blueAccent),),
-            ),),),
-        ],
+          );
+        },
       ),
     );
   }
+//list of details of bus 
+  List<bus> togetList(){
+    List<bus> busL=List<bus>();
+    busL.add(bus("St Jos Travels",'7.20 AM','7.35 AM',"75%"));
+    busL.add(bus("Jesus Travels",'7.30 AM','7.50 AM',"95% Flmost full"));
+    busL.add(bus("Suma Travels",'7.35 AM','8.00 AM',"20%"));
+    busL.add(bus("KSRTC",'7.50 AM','8.10 AM',"0%"));
+    return busL;
+  }
 
+  //navigate to next screen
   void moveToLastScreen(BuildContext context){
     Navigator.pop(context);
   }
+
 }

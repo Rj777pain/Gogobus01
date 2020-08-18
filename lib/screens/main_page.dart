@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:gogobus10/screens/sec_page.dart';
-
+//First page with form
 class mainPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
