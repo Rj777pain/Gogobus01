@@ -21,7 +21,8 @@ class busDetail extends StatelessWidget {
     moveToLastScreen(context);
     },
     )),
-    body: Center( child: Card(
+    body: Center( 
+      child: Card(
       child: Padding(
       padding: EdgeInsets.all(20.0),
       child: Column(
@@ -31,9 +32,10 @@ class busDetail extends StatelessWidget {
           Container(
             width: 300.00,
             height: 300.00,
-            color: Colors.white,
             child: Card(
-              margin: ElasticInCurve(0.4S),
+              elevation: 20,
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0),),
+              color: Colors.white,
               child: Column(
               children: <Widget>[
                 Container(height: 50.0,),
