@@ -30,7 +30,7 @@ class busDetail extends StatelessWidget {
                   children: <Widget>[
                     Text(
                       this._bus.title,
-                      style: TextStyle(color: Colors.black, fontSize: 25.0),
+                      style: TextStyle(color: Colors.white, fontSize: 25.0),
                       textScaleFactor: 1.5,
                     ),
                     Container(
