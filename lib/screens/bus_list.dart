@@ -33,7 +33,7 @@ class busList extends StatelessWidget {
               width: 200,
               margin: EdgeInsets.symmetric(vertical: 7, horizontal: 20),
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Colors.black,
                 border: Border.all(
                   color: Colors.white,
                   width: 5,
