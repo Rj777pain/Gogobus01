@@ -35,14 +35,14 @@ class busList extends StatelessWidget {
               decoration: BoxDecoration(
                 color: Colors.white,
                 border: Border.all(
-                  color: Colors.black,
+                  color: Colors.white,
                   width: 5,
                 ),
                 borderRadius: BorderRadius.circular(15),
               ),
               child: Card(
                 color: Colors.white,
-                elevation: 0.0,
+                elevation: 6.0,
                 child: ListTile(
                   leading: CircleAvatar(
                     backgroundColor: Colors.indigo,
