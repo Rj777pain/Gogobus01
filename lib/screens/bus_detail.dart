@@ -32,7 +32,9 @@ class busDetail extends StatelessWidget {
             width: 300.00,
             height: 300.00,
             color: Colors.white,
-            child: Column(
+            child: Card(
+              margin: ElasticInCurve(0.4S),
+              child: Column(
               children: <Widget>[
                 Container(height: 50.0,),
                 Text('Arrival time : '+this._bus.aTime, style: TextStyle(color: Colors.indigo, fontSize: 20.0),textScaleFactor: 1.5,),
@@ -47,7 +49,7 @@ class busDetail extends StatelessWidget {
 
 
               ],
-            ),
+            ),),
           )
         ],
       ))
