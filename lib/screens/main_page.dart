@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:gogobus10/screens/sec_page.dart';
+
 //First page with form
 class mainPage extends StatefulWidget {
   @override
@@ -62,15 +62,16 @@ class mainPageState extends State<mainPage> {
                 children: <Widget>[
                   Expanded(
                       child: RaisedButton(
-                          color: Theme.of(context).accentColor,
-                          textColor: Colors.black,
+                          color:  Theme.of(context).accentColor,
+                          textColor: Colors.white,
                           child: Text(
                             'Start',
                             textScaleFactor: 1.5,
                           ),
                           onPressed: () {
                             debugPrint("Start clicked");
-                            Navigator.push(context, MaterialPageRoute(builder: (context) {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) {
                               return secPage();
                             }));
                           })),
@@ -122,4 +123,5 @@ class mainPageState extends State<mainPage> {
   void moveToLastScreen() {
     Navigator.pop(context);
   }
+
 }
